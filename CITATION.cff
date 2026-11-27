@@ -13,6 +13,14 @@ type: software
 version: "1.0"
 date-released: "2026-11-27"
 license: MIT
+doi: "10.5281/zenodo.24577548"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24577548"
+    description: "Concept DOI (all versions)"
+  - type: doi
+    value: "10.5281/zenodo.24577549"
+    description: "Version 1.0"
 repository-code: "https://github.com/vixhal-baraiya/null-clock-obstruction"
 keywords:
   - quantum gravity

@@ -1,0 +1,27 @@
+{
+  "title": "Zero-point focusing makes the null-cone clock of arXiv:2611.34924 infinite",
+  "upload_type": "software",
+  "description": "<p>The finite-dimensional Hilbert space of a causal diamond in arXiv:2611.34924 is derived from a gravitational clock quantized as a product of shear operators. Zero-point fluctuations of the infinitely many null-cone modes make that clock infinite: splitting the cone into N intervals gives a focusing lower bound (&pi;/&radic;10)(&hbar;/&kappa;) N<sup>2</sup> ln(v/&epsilon;)/(v&minus;&epsilon;)<sup>2</sup> for every N.</p><p>In the setting the paper uses for its own state counting (corner data fixed, radiation linearized, all radial modes kept), the clock's quadratic form is +&infin; on every nonzero vector, so the causal-diamond space is {0}. Both of the paper's arguments that states exist fail: the Wigner-measure step (C.15b) and the order-by-order step (C.15e). Normal ordering removes the infinity, but then the partial focusing takes negative values, contrary to the positivity asserted below (4.22).</p><p>The archive contains the proof (PROOF.md) and numerical checks. Code: MIT License; text: CC BY 4.0.</p>",
+  "creators": [
+    {
+      "name": "Baraiya, Vishal Singh"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "quantum gravity",
+    "null cone",
+    "gravitational clock",
+    "zero-point fluctuations",
+    "Raychaudhuri equation",
+    "causal diamond"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "arXiv:2611.34924",
+      "relation": "references",
+      "scheme": "arxiv"
+    }
+  ],
+  "version": "1.0"
+}

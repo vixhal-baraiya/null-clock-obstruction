@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Zero-point focusing makes the null-cone clock of arXiv:2611.34924 infinite"
+abstract: >-
+  The causal-diamond clock of arXiv:2611.34924 is a product of shear operators.
+  Zero-point fluctuations of the null-cone modes make it infinite on every
+  state in the paper's own state-counting setting, so the causal-diamond space
+  is {0}, and both of the paper's arguments that states exist fail.
+authors:
+  - family-names: Baraiya
+    given-names: Vishal Singh
+type: software
+version: "1.0"
+date-released: "2026-11-27"
+license: MIT
+repository-code: "https://github.com/vixhal-baraiya/null-clock-obstruction"
+keywords:
+  - quantum gravity
+  - null cone
+  - gravitational clock
+  - zero-point fluctuations

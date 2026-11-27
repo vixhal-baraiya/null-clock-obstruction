@@ -1,138 +1,154 @@
-# The Weyl-ordered gravitational clock of arXiv:2611.34924 is infinite on every state
+# Zero-point focusing makes the null-cone clock of arXiv:2611.34924 infinite
 
 **Paper:** V. Chandrasekaran, *An algebraic quantization of gravity from the null cone*, arXiv:2611.34924v1. Equation numbers below refer to that paper.
 
-**Result.** The clock in (4.22)–(4.27) squares the shear operator, and those squares carry an infinite zero-point term. Once every radial mode on the null cone is kept, three things follow:
+## Result
 
-1. The clock's quadratic form is +∞ on every nonzero vector.
-2. The causal-diamond space H_D = P_D H_ω is therefore {0}.
-3. Both steps the paper uses to argue otherwise fail:
+The gravitational clock (4.22)–(4.27) is built from products of shear operators, which keep their zero-point fluctuations. We work in the model the paper uses for its graviton count and for its expansion about the spherical cone:
+
+- corner data held at spherical values;
+- radiative data linearized about the shear-free incoming cone;
+- every radial mode kept, as in the infinite product (4.7).
+
+In this model:
+
+1. **Lemma 1.** The focusing operator exceeds every constant. The zero-point focusing grows without bound as the cone is resolved more finely.
+2. **Theorem 1.** The clock's quadratic form (4.27) is +∞ on every nonzero vector. The model's causal-diamond space P_D H is therefore {0}.
+3. **Theorem 2.** Both steps the paper uses for (5.19) fail in the model:
    - the Wigner-measure argument (5.9)/(C.15b);
    - the order-by-order expansion (5.14)/(C.15e).
+4. **Proposition 3.** If the zero point is removed by normal ordering, the focusing operator is no longer positive for v < 1. That positivity is asserted below (4.22).
 
-Normal ordering removes the infinity, but then the focusing operator Ξ̂_y(v) is no longer positive. The bound (5.21) that ties the clock to the corner area depends on that positivity.
+The paper evaluates (5.8) and (C.15)–(C.16) "at fixed resolution". At a fixed radial resolution N, the zero point is finite and scales as N²/s. So the paper's estimates hold resolution by resolution but not uniformly in N. The limit N → ∞, which the infinite product (4.7) requires, is the case covered by Theorems 1–2.
 
 ## Setting
-
-We work in the sector the paper itself uses to count graviton states (App. D.3): corner data held at spherical values, and radiative data linearized about the shear-free incoming cone.
 
 - **Corner data.** ϱ_S(y) = b on S, so the area is A = 4πb² and s = A/(4Għ).
 - **Radiative data.** One polarization z₁ of the conformal metric, in one real normalized angular harmonic Y: h(v) = ∫_S ε₀ Y z₁. This obeys h(ε) = h(1) = 0 (D.42).
 - **Symplectic form.** From (D.42a)–(D.43), with x = v h:
   - Ω(x, y) = κ ∫_ε^1 [(∂x) y − (∂y) x] dv = 2κ ∫_ε^1 (∂x) y dv
   - κ ∝ ϱ_S²/G, so ħ/κ ∝ 1/s.
-- **Brackets.** For linear observables F_a = ∫ a x with ∫ a = 0:
-  - {F_a, F_b} = (1/2κ) ∫ a(v) B(v) dv, where B(v) = ∫_ε^v b.
-  - So observables supported in disjoint intervals commute.
-- **Focusing operator.** By (4.22), dropping the nonnegative z₂ term and projecting onto Y (Cauchy–Schwarz on S, an inequality of classical quadratic forms):
+- **Brackets.** Linear observables F_a = ∫ a x are admissible when ∫ a = 0, which is needed for a Hamiltonian vector field to exist. For such observables:
+  - {F_a, F_b} = (1/2κ) ∫ a(v) B(v) dv, with B(v) = ∫_ε^v b. B vanishes outside supp b.
+- **Focusing.** Write φ = ∂x − x/t = t∂h. Dropping the nonnegative z₂ term of (4.22) and projecting onto Y (Bessel's inequality on S), the sphere-integrated focusing satisfies
 
-  Ξ̄(v) := ∫_S ε₀ Ξ̂_y(v) ≥ Q_v,  where Q_v[x] = ¼ ∫_ε^v t (∂h)² dt = ¼ ∫_ε^v (1/t) φ² dt,  φ = ∂x − x/t.
+  Ξ̄(v) := ∫_S ε₀ Ξ̂_y(v) ≥ Q_v,  where Q_v = ¼ ∫_ε^v φ²/t dt.
 
-Every operator below is the Weyl quantization of a classical quadratic form, as in (4.20)–(4.22). Weyl quantization preserves the order of quadratic forms. For a positive form on one canonical pair with {A, B} = c, the Weyl operator is at least ħν/2, where ν = |c|·√det M is the form's symplectic eigenvalue.
+  The ¼ comes from the ⅛ in (3.26c), because (∂q̄)·(∂q̄) = 2 g_{αβ} ∂z^α ∂z^β.
 
-## Lemma 1 (local zero-point)
+**Operator meaning.** The paper applies Weyl ordering "wherever the smeared products are defined" (4.20). It asserts Ξ̂ ≥ 0 below (4.22) because Ξ̂ is a sum of squares. Consistently with that, we read the operator form of Q_v as a sum of squares:
 
-For every v ∈ (ε, 1] and every N, as operators:
+  Q̂_v[ψ] := sup over finite orthonormal families {e_k} ⊂ L²([ε, v], dt/t) of ¼ Σ_k ‖φ̂(e_k) ψ‖²,
 
-  Q_v ≥ Σ_{n=1}^N (ħ ν_n / 2) · 1,  with  ν_n ≥ π/(4κ c_n ℓ) · (1 − O(ℓ/ε)).
+where φ̂(e) = ∫ e φ̂ dt/t is the smeared field. This definition:
+- takes values in [0, ∞];
+- does not depend on a basis;
+- needs no infinite-dimensional Weyl calculus.
 
-Here ℓ = (v − ε)/N, and c_n are the midpoints of the N equal intervals I_n partitioning [ε, v]. Hence
+## Lemma 1 (local zero point)
 
-  Q_v ≥ (π/8)(ħ/κ) · N² ln(v/ε)/(v − ε)² · (1 − O(1/N)) for all N,
+For every v ∈ (ε, 1], every N, and every vector ψ in a regular representation (one where the C¹, compactly supported smearings below define self-adjoint field operators):
 
-so Q_v exceeds every multiple of the identity.
+  Q̂_v[ψ] ≥ ‖ψ‖² Σ_{n=1}^N E_n,  with E_n = (α/8)(ħ/κ)/(c_n ℓ) · (1 + O(ℓ/ε)),  α = 4√10 π/5.
+
+Here ℓ = (v − ε)/N and c_n are the midpoints of the N equal intervals partitioning [ε, v]. Hence
+
+  Q̂_v[ψ] ≥ ‖ψ‖² · (π/√10)(ħ/κ) · N² ln(v/ε)/(v − ε)² · (1 + O(1/N))
+
+for every N, so Q̂_v[ψ] = +∞ for every ψ ≠ 0.
 
 **Proof.**
-1. **Local pairs.** On I_n write τ = (t − c_n)/ℓ + ½ ∈ [0, 1] and b(τ) = sin²(πτ). Define
-   - f = t·b′(τ), g = t·b″(τ)/(2π²);
-   - A_n = ∫ f φ, B_n = ∫ g φ.
+1. **Smearings.** On the interval I_n write τ = (t − c_n)/ℓ + ½ ∈ [0, 1], and take
+   - u₁ = sin²(πτ) sin 2πτ,
+   - u₂ = sin²(πτ)(cos 2πτ + ½).
 
-   Both f/t and g/t integrate to zero, so A_n and B_n are linear observables F_a with ∫ a = 0, supported in I_n. Pairs on different intervals therefore commute.
-2. **Their bracket.** Integrating by parts:
-   - {A_n, B_n} = (1/2κ)[∫ f′g + ∫ f G/t], with G(t) = ∫^t g/u;
-   - ∫ f′g = c_n²π² + O(ℓ²) and |∫ f G/t| ≤ ℓ²/2.
-3. **Cauchy–Schwarz.** In the inner product ⟨u, w⟩ = ∫_{I_n} u w/t, A_n = ⟨t f, φ⟩ and B_n = ⟨t g, φ⟩. So, as classical forms,
+   Both are C¹, vanish with their derivatives at τ = 0 and 1, and have zero mean. Set f = t u₁, g = t u₂, A_n = ∫ f φ and B_n = ∫ g φ. Integrating by parts, A_n = F_a with a = −f′ − f/t, which is continuous with ∫ a = −∫ f/t = −ℓ∫u₁ = 0. The same holds for B_n. So A_n and B_n are admissible observables supported in I_n.
+2. **Bracket.** {A_n, B_n} = (1/2κ)[∫ f′g + ∫ f G/t], where G(t) = ∫^t g/u = ℓ U₂(τ) and U₂ = ∫₀^τ u₂ vanishes at both ends. As ℓ → 0 this gives {A_n, B_n} = (c_n²/2κ) I₁ (1 + O(ℓ/c_n)), with I₁ = ∫ u₁′ u₂ = π/4.
+3. **Bessel's inequality.** In ⟨p, q⟩ = ∫_{I_n} p q/t, A_n = ⟨t f, φ⟩ and B_n = ⟨t g, φ⟩. Choosing {e_k} as an orthonormal basis of span{t f, t g} in the definition of Q̂_v gives
 
-   ¼ ∫_{I_n} φ²/t ≥ ¼ (A_n, B_n) Gram⁻¹ (A_n, B_n)ᵀ,
+   ¼ Σ_k ‖φ̂(e_k)ψ‖² = ⟨ψ| ¼ (Â_n, B̂_n) Gram⁻¹ (Â_n, B̂_n)ᵀ |ψ⟩.
 
-   where Gram is the Gram matrix of {t f, t g}. Its determinant satisfies √det Gram = c_n³ ℓ π/2 · (1 + O(ℓ/c_n)).
-4. **Symplectic eigenvalue.** This gives ν_n = ¼ |{A_n, B_n}| / √det Gram = π/(4κ c_n ℓ) · (1 + O(ℓ/ε)).
-5. **Sum.** Discarding the rest of [ε, v] only lowers the form. Weyl quantization preserves the order, and commuting pairs add their zero points. Summing, Σ_n 1/(c_n ℓ) = N² ln(v/ε)/(v − ε)² · (1 + O(1/N)). ∎
+   Here Gram is the Gram matrix of {t f, t g}, with √det Gram = c_n³ ℓ √D (1 + O(ℓ/c_n)). The constant D = ∫u₁² ∫u₂² − (∫u₁u₂)² = (5/32)(1/16).
+4. **Ground energy.** The operator zᵀMz with M = ¼ Gram⁻¹ and [Â, B̂] = iħc is at least ħ|c|√det M = ħ|c|/(4√det Gram). This gives E_n = (α/8)(ħ/κ)/(c_n ℓ) · (1 + O(ℓ/ε)), with α = I₁/√D = 4√10 π/5.
+5. **Adding intervals.** Families on different intervals together form a single orthonormal family, so the bounds add. The pairs do not need to commute, since each term is bounded separately. Finally, Σ_n 1/(c_n ℓ) = N² ln(v/ε)/(v − ε)² · (1 + O(1/N)). ∎
 
-`partition_bound.py` evaluates the exact per-interval ν_n by quadrature. The total grows exactly as N² (N = 10 to 10⁴), with the predicted constant (π/8)·ln(v/ε)/(v − ε)²: 1.116 against 1.1163 at v = 1, ε = 0.1.
+`partition_bound.py` evaluates the exact E_n by quadrature. Σ_n E_n/N² matches (α/8) ln(v/ε)/(v − ε)² to six digits at N = 10⁴ (2.82410 at v = 1, ε = 0.1, κ = ħ = 1). The closed form α = 4√10 π/5 follows from I₁ = π/4, ∫u₁² = 5/32, ∫u₂² = 1/16 and ∫u₁u₂ = 0.
 
-## Theorem 1 (the clock form is infinite; H_D = {0})
+## Theorem 1 (the model clock is infinite)
 
-In this sector the quadratic form (4.27) of the clock satisfies Q[ψ] = +∞ for every ψ ≠ 0. Consequently:
+Assume the clock satisfies, as quadratic forms,
+
+  û* ≥ (b/4π) ∫_ε^1 dv [4π + Ξ̄(v)].
+
+This holds in the model for the clock (4.26) under any definition of e^{Ξ̂_y(v)} that obeys e^x ≥ 1 + x, through the cut-off forms min(Ξ̂_y(v), Ξ*) of (C.11) and monotone convergence. Note that (4.26) needs Ξ̂_y at a single point y, which is not itself an operator, so this assumption is what any definition has to supply.
+
+Under that assumption, the clock's quadratic form (4.27) is +∞ on every ψ ≠ 0. Consequently:
 - M, the closure of the form domain in (C.13), is {0};
-- Ψ_L = L(L + û*)⁻¹ P_M ψ = 0;
-- 1 − ⟨Ω_A|Ψ_L⟩ = 1 for every L;
-- ‖P_D Ω_A‖ = 0 for every ℓ(D), contradicting (5.19);
-- H_D = P_D H_ω = {0}.
+- Ψ_L = L(L + û*)⁻¹ P_M ψ = 0, so 1 − ⟨Ω_A|Ψ_L⟩ = 1 for every L;
+- ‖P_D Ω_A‖ = 0 for every ℓ(D);
+- the model's causal-diamond space is P_D H = {0}.
 
-**Proof.**
-1. **The clock in this sector.** With ϱ̂_S = b and â = 4πb, (4.26) gives û* = (b/4π) ∫ ε₀ ∫_ε^1 dv e^{Ξ̂_y(v)}.
-2. **Cut-off forms.** The form Q_{Ξ*} of (C.11) uses min(Ξ̂_y(v), Ξ*). Since e^x ≥ 1 + x,
+**Proof.** In the model, ϱ̂_S = b and â = 4πb. Lemma 1 gives ⟨ψ|Ξ̄(v)|ψ⟩ ≥ Q̂_v[ψ] = +∞ for every v > ε. Integrating over v proves the claim. The rest follows from (C.13), whose footnote extends the projections by zero on M⊥. ∎
 
-   Q_{Ξ*}[ψ] ≥ (b/4π) ∫ dv ∫ ε₀ ⟨ψ| 1 + min(Ξ̂_y(v), Ξ*) |ψ⟩.
-3. **Removing the cutoff.** As Ξ* → ∞, monotone convergence takes the right-hand side to (b/4π) ∫ dv [4π‖ψ‖² + ⟨ψ|Ξ̄(v)|ψ⟩].
-4. **Conclusion.** By Lemma 1, ⟨ψ|Ξ̄(v)|ψ⟩ ≥ ⟨ψ|Q_v|ψ⟩ = +∞ for every v > ε and every ψ ≠ 0. The forms Q_{Ξ*} increase to Q (C.11)–(C.13), so Q[ψ] = +∞. ∎
+## Theorem 2 (the paper's arguments for (5.19) fail in the model)
 
-The argument uses only the uncertainty principle, through the zero point of each local canonical pair. So it holds in every representation of the canonical commutation relations, for every choice of Gaussian centres and widths (4.7), and for every state.
-
-## Theorem 2 (the paper's two arguments for (5.19) fail)
-
-**(a) Wigner measure, (5.9)/(C.15b).** Let μ be the Wigner function of any pure Gaussian state, with covariance Σ. Then Q_v = +∞ μ-almost surely, so ū* = +∞ μ-almost surely. This contradicts (C.15b)'s claim that μ-almost every configuration has a conformal metric smooth up to S. It also gives ⟨f₀⟩_μ = 1, not → 0, in (5.9).
+**(a) Wigner measure, (5.9)/(C.15b).** Let μ be the Wigner function of a pure Gaussian state in which the smeared fields A_n and B_n have finite variance. This holds for Hadamard-type states and for the widths (Δq_k)² = 1/(2sk) used in (4.32). Then Q_v = +∞ μ-almost surely, and so ū* = +∞ μ-almost surely. This contradicts (C.15b)'s claim that μ-almost every configuration is smooth up to S. In (5.9) it gives ⟨f₀⟩_μ = 1 for every L, not → 0.
 
 *Proof.*
-1. **The trace is infinite.** Uncertainty, Σ + (iħ/2)J ≥ 0, applied pair by pair to the local pairs of Lemma 1, gives tr(Q_v Σ) ≥ Σ_n ħν_n/2 for every N. So tr(Q_v Σ) = ∞.
-2. **Laplace transform.** Let Q^(N) = Σ_n P_n be the finite-rank form built from the N local pairs of Lemma 1, so Q_v ≥ Q^(N). For a Gaussian measure, E[e^{−τQ^(N)}] ≤ Π_k (1 + 2τλ_k)^{−1/2}, where λ_k are the eigenvalues of Σ^{1/2} Q^(N) Σ^{1/2}. A nonzero mean only lowers the left-hand side.
-3. **Divergence.** Π_k (1 + 2τλ_k) ≥ 1 + 2τ Σ_k λ_k, and Σ_k λ_k = tr(Q^(N) Σ) ≥ Σ_n ħν_n/2 → ∞ as N → ∞. So E[e^{−τQ_v}] ≤ inf_N E[e^{−τQ^(N)}] = 0 for every τ > 0. Hence P(Q_v < ∞) = lim_{τ→0} E[e^{−τQ_v}] = 0.
-4. **The clock.** Fubini over v and e^x ≥ 1 + x give ū* = ∞ almost surely. ∎
+1. **Lower bound.** Let Q^(N) = Σ_n ¼ (A_n, B_n) Gram_n⁻¹ (A_n, B_n)ᵀ. Then Q_v ≥ Q^(N) pointwise, by step 3 of Lemma 1.
+2. **Uncertainty.** The covariance Σ of a quantum state satisfies Σ + (iħ/2)J ≥ 0. Applied pair by pair, this gives tr(Q^(N) Σ) ≥ Σ_n E_n, which tends to ∞ as N → ∞.
+3. **Laplace transform.** For a Gaussian measure, E[e^{−τQ^(N)}] ≤ Π_k (1 + 2τλ_k)^{−1/2}, where λ_k are the eigenvalues of Σ^{1/2} Q^(N) Σ^{1/2}. A nonzero mean only lowers the left-hand side. Since Π_k (1 + 2τλ_k) ≥ 1 + 2τ tr(Q^(N) Σ), we get E[e^{−τQ_v}] ≤ inf_N E[e^{−τQ^(N)}] = 0 for every τ > 0.
+4. **Conclusion.** P(Q_v < ∞) = lim_{τ→0} E[e^{−τQ_v}] = 0. Fubini over v and e^x ≥ 1 + x give ū* = +∞ almost surely. ∎
 
 **(b) Order-by-order expansion, (5.14)/(C.15e).**
 1. At shear-free data, ∂_I ū* = 0 along radiative directions, since focusing starts at second order.
-2. So the O(ħ) Wick contraction (5.14) is ½ Σ^{IJ} ∂_I∂_J f₀ = L/(2(L + ū₀)²) · Σ^{IJ} ∂_I∂_J ū*.
-3. The Hessian of ū* contains (b/4π) ∫ dv · 2Q_v, and its contraction with Σ is ∞ by step 1 of (a).
-4. So the coefficient of ħ¹ in 1 − ⟨Ω_A|Ψ_L⟩ is +∞ for every L, not O(L⁻¹) as stated in (C.15e). ∎
+2. Along corner directions the first derivative also vanishes, because â is maximal at the round sphere, and the corner Hessian is ≥ 0.
+3. So the O(ħ) Wick term (5.14) is at least L/(2(L + ū₀)²) · (b/4π) ∫ dv · tr(Σ · 2Q_v), which is +∞ by step 2 of (a).
+4. The coefficient of ħ¹ in 1 − ⟨Ω_A|Ψ_L⟩ is therefore +∞ for every L, not O(L⁻¹) as stated in (C.15e). ∎
 
-## Proposition 3 (normal ordering breaks positivity)
+## Fixed resolution
 
-Subtracting the zero point (normal ordering with respect to a Gaussian Ω) makes Ξ̄(1) finite. But the operator inequality Ξ̂_y(v) ≥ 0 asserted below (4.22) no longer holds. That inequality is the input to (5.21a) and so to the area bound (5.21d).
+With N radial modes kept, the zero point is finite.
+- Galerkin evaluation: the low symplectic eigenvalues of Q₁ converge to 2.801, 6.011, 9.214, 12.411, … (κ = ħ = 1, ε = 0.1). They grow linearly, reproducing the k/s scaling of (D.41).
+- The truncated zero point grows as about 0.3 N² (ħ/κ), i.e. of order N²/s.
 
-- **Numerics.** `spectrum.py` takes Ω to be the vacuum of the full-cone form Q₁, which is the most favourable choice for the paper. In a Galerkin basis of N sine modes it computes inf_ψ ⟨ψ|:Q_v:|ψ⟩ = (ħ/2)Σν(Q_v) − tr(Q_v Σ_Ω):
+So the clock shift from vacuum focusing is negligible while N ≪ √s, and grows without bound beyond that. The paper's fixed-resolution estimates, (5.8) and (C.15)–(C.16), do not control this limit. Its Hilbert space (4.7) is an infinite product over all modes, which is the case covered by Theorems 1–2.
 
-  | N | v = 0.3 | v = 0.55 | v = 0.8 | v = 1 |
-  |---|---|---|---|---|
-  | 20 | −3.27 | −2.64 | −2.15 | 0 |
-  | 40 | −8.08 | −6.04 | −5.04 | 0 |
-  | 80 | −16.85 | −13.46 | −11.23 | 0 |
-  | 160 | −36.67 | −29.37 | −24.67 | 0 |
+## Proposition 3 (normal ordering loses positivity)
 
-- **Reading.** :Q_v: has negative expectation values for every v < 1. Their magnitude grows with the mode cutoff, consistent with Q_v's sharp edge at v inside the interval.
-- **Supporting result.** For a two-dimensional massless field, the optimal lower bound on ∫ w :T_uu: is −(ħ/48π) ∫ (w′)²/w (Flanagan 1997). That bound is −∞ for a weight with a sharp edge.
+Normal ordering removes the zero point. Take normal ordering with respect to Ω, the vacuum of the full-cone form Q₁. Then:
+- ⟨Ω|:Q̂_v:|Ω⟩ = 0, and :Q̂_v: ≥ 0 only if :Q̂_v:Ω = 0.
+- If the coefficient K₁₁ of a₁†a₁† in :Q̂_v: is nonzero, take ψ = Ω + η a₁†a₁†Ω with small η of the right sign. This gives ⟨ψ|:Q̂_v:|ψ⟩ < 0.
 
-This proposition rests on truncated numerics and the cited bound. It is not proved here at the level of Theorems 1–2.
+`spectrum.py` computes |K₁₁| in a Galerkin sine basis. It is converged in the cutoff and nonzero for every v < 1, and vanishes at v = 1:
 
-## Remark: the paper is internally inconsistent
+| v | 0.3 | 0.55 | 0.8 | 1 |
+|---|---|---|---|---|
+| \|K₁₁\| (N = 40 to 240) | 0.10277 | 0.00352 | 0.32242 | 0 |
 
-- The clock (4.22) multiplies field operators, so it keeps the zero point. Theorems 1–2 apply.
-- The state count (D.45a)–(D.46c) instead counts states with Σ_i n_i ν_i ≤ Q*, which subtracts the zero point. Proposition 3 applies.
+So, under normal ordering, the operator inequality Ξ̂_y(v) ≥ 0 asserted below (4.22) fails for v < 1.
 
-Neither choice supports the full chain (4.22) → (5.21) → (5.30) → finite dim H_D. As a cross-check, `spectrum.py` finds the symplectic eigenvalues of Q₁ growing linearly in the radial mode number (ν_k ≈ 3.21k − 0.4 at κ = ħ = 1, ε = 0.1). That reproduces the k/s scaling of (D.41).
+This does not by itself break (5.21a). That bound needs only a lower bound on ∫ dv e^{Ξ̂}, and a bound :Ξ̂: ≥ −C would weaken it by a factor e^{−C} without destroying it. Whether such a C exists, uniformly in the state, is not settled here.
+
+Appendix D.3 counts graviton states by Σ_i n_i ν_i ≤ Q*, i.e. with normal-ordered excitation energies. That counting applies to a different functional, Q[h] in (D.40), bounded through ∫Θ(n) in (D.38). The paper does not say which ordering the clock (4.22) is meant to carry.
 
 ## Scope
 
-- **Proven (Lemma 1, Theorems 1–2):** the frozen-corner sector with radiative data linearized about the shear-free incoming cone. These are the same approximations the paper uses for its mode count (App. D.3) and its expansion about ϕ₀ in (5.13)–(5.14).
+- **Proven:** Lemma 1 and Theorems 1–2, in the model above:
+  - z₁ polarization, one angular harmonic;
+  - radiative data linearized about the shear-free cone;
+  - corner frozen at spherical values;
+  - all radial modes kept;
+  - the clock read as a sum of squares.
 - **Not covered:**
-  - nonlinear radiative couplings (the e^{2z₁} factor and the z₁–z₂ cross terms in Ω);
-  - fluctuating corner data;
-  - other choices of operator ordering.
-- **Assessment of the full theory:** these would have to cancel a positive divergence that is quadratic in the local mode cutoff, uniformly in the state. Nothing in the paper indicates such a cancellation.
+  - fluctuating corner data. Through δK∧α in (3.42b) the local brackets then scale as 1/K̂(y);
+  - the nonlinear couplings (the e^{2z₁} factor and the z₁–z₂ cross terms in Ω);
+  - other definitions of e^{Ξ̂_y} at a point.
+- **Not proven:** Proposition 3 is a converged numerical statement about one coefficient, plus an elementary argument from it.
 
 ## Files
 
-- `partition_bound.py`: exact per-interval symplectic eigenvalues for Lemma 1, for N up to 10⁴.
-- `spectrum.py`: Galerkin symplectic spectra of Q_v (zero points growing as N²) and the normal-ordered infima of Proposition 3.
+- `partition_bound.py`: exact per-interval ground energies for Lemma 1 (N up to 10⁴), against the closed-form constant.
+- `spectrum.py`: Galerkin symplectic spectra of Q₁, the truncated zero points, and the pair-creation coefficient K₁₁ for Proposition 3.
 
 Both run with numpy and scipy.

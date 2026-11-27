@@ -56,23 +56,35 @@ def williamson_vacuum_cov(Qm, J):
     S = Hmh @ O @ np.diag(d)
     return 0.5 * S @ S.T
 
+def vacuum_modes(Q1, J):
+    """Symplectic S with S^T (2 Q1) S = diag(om_k, om_k), columns ordered by frequency."""
+    import scipy.linalg as sl
+    H = 2 * Q1; w, U = np.linalg.eigh(H)
+    Hh = U @ np.diag(np.sqrt(w)) @ U.T; Hmh = U @ np.diag(1 / np.sqrt(w)) @ U.T
+    K = Hh @ J @ Hh; K = (K - K.T) / 2
+    T, O = sl.schur(K, output="real")
+    n = K.shape[0]; d = np.zeros(n); om = np.zeros(n // 2)
+    for i in range(0, n, 2):
+        om[i // 2] = abs(T[i, i + 1]); d[i] = d[i + 1] = np.sqrt(om[i // 2])
+    S = Hmh @ O @ np.diag(d)
+    idx = np.argsort(om)
+    perm = np.concatenate([[2 * i, 2 * i + 1] for i in idx])
+    return S[:, perm], om[idx]
+
 if __name__ == "__main__":
-    print("(P1) symplectic eigenvalues of the full-cone focusing Q_1  (hbar=kappa=1)")
+    print("Galerkin illustration (sine basis, N modes; low eigenvalues converge, high ones do not)")
+    print("symplectic eigenvalues of the full-cone focusing Q_1  (hbar = kappa = 1)")
     for N in [20, 40, 80, 160]:
         J = comm_matrix(N); nu = sympl_eigs(q_matrix(N, 1.0), J)
-        print(f"  N={N:4d}: nu_1..4 = {np.round(nu[:4],4)}  nu_last/k_last = {nu[-1]/len(nu):.4f}  zero-point = {nu.sum()/2:10.3f}  zp/N^2 = {nu.sum()/2/N**2:.5f}")
-    print("\n(P2) zero-point of partial focusing Q_v")
-    for v in [0.3, 0.55, 0.8]:
-        row = []
-        for N in [20, 40, 80, 160]:
-            J = comm_matrix(N); nu = sympl_eigs(q_matrix(N, v), J)
-            row.append(f"N={N}: {nu.sum()/2:9.3f}")
-        print(f"  v={v}: " + "  ".join(row))
-    print("\n(P3) inf over states of <:Q_v:> with normal ordering w.r.t. the vacuum of Q_1")
-    for N in [20, 40, 80, 160]:
-        J = comm_matrix(N); Q1 = q_matrix(N, 1.0); Sig = williamson_vacuum_cov(Q1, J)
+        print(f"  N={N:4d}: nu_1..4 = {np.round(nu[:4], 4)}   truncated zero-point = {nu.sum()/2:10.3f}")
+    print("\nProposition 3: pair-creation coefficient K_11 of Q_v in the vacuum of Q_1")
+    print("(<Omega|:Q_v:|Omega> = 0, so K_11 != 0 forces negative expectation values of :Q_v:)")
+    for N in [40, 80, 160, 240]:
+        J = comm_matrix(N); S, om = vacuum_modes(q_matrix(N, 1.0), J)
         out = []
         for v in [0.3, 0.55, 0.8, 1.0]:
-            Qv = q_matrix(N, v); nu = sympl_eigs(Qv, J)
-            out.append(f"v={v}: {nu.sum()/2 - np.trace(Qv @ Sig):9.3f}")
-        print(f"  N={N:4d}: " + "  ".join(out))
+            M = S.T @ q_matrix(N, v) @ S
+            q = M[0::2, 0::2]; p = M[1::2, 1::2]; x = M[0::2, 1::2]
+            K11 = 0.5 * (q[0, 0] - p[0, 0] - 2j * x[0, 0])
+            out.append(f"v={v}: |K_11| = {abs(K11):.5f}")
+        print(f"  N={N:4d}: " + "   ".join(out))
